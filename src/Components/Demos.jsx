@@ -20,16 +20,16 @@ const projects = [
   },
   {
     img: SecondImg,
-    title: "To Do List",
-    description: "Simple to-do list web page.",
-    link: "https://boda-todolist.netlify.app/",
+    title: "TicTacToe",
+    description: "A Simple TicTacToe web game to play with a freind.",
+    link: "https://boda-ticktactoe.netlify.app/",
   },
   {
     img: ThirdImg,
-    title: "Tv Search",
+    title: "Quiz App",
     description:
-      "This website takes names from you and sends them to an API, then returns search results.",
-    link: "https://boda-movie-search-app.netlify.app/",
+      "A Simple Quiz app with timer also it randomise the questions and answers everytime.",
+    link: "https://boda-quizapp.netlify.app/",
   },
 ];
 
