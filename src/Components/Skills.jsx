@@ -23,8 +23,9 @@ const Skills = () => {
       skills: [
         { name: "HTML", percent: 90, barClass: "skills__html" },
         { name: "CSS", percent: 80, barClass: "skills__css" },
-        { name: "JavaScript", percent: 80, barClass: "skills__js" },
         { name: "Bootstrap", percent: 70, barClass: "skills__bootstrap" },
+        { name: "JavaScript", percent: 80, barClass: "skills__js" },
+        { name: "React.js", percent: 80, barClass: "skills__react" },
       ],
     },
     {
@@ -32,10 +33,10 @@ const Skills = () => {
       subtitle: "Recently",
       icon: UilServerNetwork,
       skills: [
-        { name: "Sql", percent: 90, barClass: "skills__sql" },
         { name: "Node Js", percent: 70, barClass: "skills__node" },
+        { name: "express", percent: 80, barClass: "skills__express" },
+        { name: "Sql", percent: 90, barClass: "skills__sql" },
         { name: "MongoDb", percent: 70, barClass: "skills__mongoDb" },
-        { name: "python", percent: 90, barClass: "skills__python" },
       ],
     },
     {
@@ -43,10 +44,10 @@ const Skills = () => {
       subtitle: "+1 year experience",
       icon: UilDesktop,
       skills: [
-        { name: "C++", percent: 90, barClass: "skills__cpp" },
-        { name: "Java", percent: 70, barClass: "skills__java" },
         { name: "Python", percent: 90, barClass: "skills__python" },
+        { name: "C++", percent: 90, barClass: "skills__cpp" },
         { name: "C#", percent: 80, barClass: "skills__cs" },
+        { name: "Java", percent: 70, barClass: "skills__java" },
       ],
     },
     {

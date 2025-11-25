@@ -202,6 +202,8 @@
 /*==================== ABOUT ====================*/
 .about__img {
   width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 0.5rem;
   justify-self: center;
   align-self: center;
@@ -303,6 +305,9 @@
 .skills__js {
   width: 80%;
 }
+.skills__react {
+  width: 80%;
+}
 .skills__bootstrap {
   width: 80%;
 }
@@ -311,6 +316,9 @@
 }
 .skills__node {
   width: 70%;
+}
+.skills__express {
+  width: 80%;
 }
 .skills__mongoDb {
   width: 70%;
@@ -741,6 +749,7 @@
   }
   .about__img {
     width: 350px;
+    height: 350px;
   }
   .about__discription {
     text-align: initial;
