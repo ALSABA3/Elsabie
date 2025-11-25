@@ -3,32 +3,34 @@ import Swiper from "swiper/bundle";
 import FirstImg from "../assets/1.png";
 import SecondImg from "../assets/2.png";
 import ThirdImg from "../assets/3.png";
-
 import {
   UilAngleRightB,
   UilArrowRight,
   UilAngleLeftB,
 } from "@iconscout/react-unicons";
 
-const projects = [
+const ICON_SIZE = 20;
+const NAV_ICON_SIZE = 56;
+
+const PORTFOLIO_PROJECTS = [
   {
     img: FirstImg,
-    title: "Coundown Game",
+    title: "Countdown Game",
     description:
-      "Web game adaptable to all devices, with UI components and animated interactions.",
+      "A responsive web game with interactive UI components and smooth animations, optimized for all devices.",
     link: "https://boda-countdown.netlify.app/",
   },
   {
     img: SecondImg,
     title: "TicTacToe",
-    description: "A Simple TicTacToe web game to play with a freind.",
+    description: "A classic TicTacToe web game for playing with a friend.",
     link: "https://boda-ticktactoe.netlify.app/",
   },
   {
     img: ThirdImg,
     title: "Quiz App",
     description:
-      "A Simple Quiz app with timer also it randomise the questions and answers everytime.",
+      "An interactive quiz application with a timer and randomized questions and answers for each session.",
     link: "https://boda-quizapp.netlify.app/",
   },
 ];
@@ -56,7 +58,7 @@ const Demos = () => {
 
       <div className="portfolio__container container swiper">
         <div className="swiper-wrapper">
-          {projects.map((project, index) => (
+          {PORTFOLIO_PROJECTS.map((project, index) => (
             <div key={index} className="portfolio__content grid swiper-slide">
               <img
                 src={project.img}
@@ -76,10 +78,10 @@ const Demos = () => {
                 >
                   Demo{" "}
                   <UilArrowRight
-                    size="20"
+                    size={String(ICON_SIZE)}
                     color="#fff"
                     className="button__icon"
-                  ></UilArrowRight>
+                  />
                 </a>
               </div>
             </div>
@@ -87,17 +89,17 @@ const Demos = () => {
         </div>
         <div className="swiper-button-next">
           <UilAngleRightB
-            size="56"
+            size={String(NAV_ICON_SIZE)}
             color="var(--first-color)"
             className="swiper-portfolio-icon"
-          ></UilAngleRightB>
+          />
         </div>
         <div className="swiper-button-prev">
           <UilAngleLeftB
-            size="56"
+            size={String(NAV_ICON_SIZE)}
             color="var(--first-color)"
             className="swiper-portfolio-icon"
-          ></UilAngleLeftB>
+          />
         </div>
 
         <div className="swiper-pagination"></div>

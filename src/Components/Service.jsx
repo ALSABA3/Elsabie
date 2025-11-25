@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import UilWebGrid from "@iconscout/react-unicons/icons/uil-web-grid";
 import UilArrow from "@iconscout/react-unicons/icons/uil-arrow";
 import UilPen from "@iconscout/react-unicons/icons/uil-pen";
@@ -7,7 +7,12 @@ import UilCheckCircle from "@iconscout/react-unicons/icons/uil-check-circle";
 import UilTimes from "@iconscout/react-unicons/icons/uil-times";
 import UilArrowRight from "@iconscout/react-unicons/icons/uil-arrow-right";
 
-const services = [
+const ICON_SIZE = 32;
+const CLOSE_ICON_SIZE = 24;
+const ARROW_ICON_SIZE = 20;
+const CHECK_ICON_SIZE = 24;
+
+const SERVICES = [
   {
     title: "UI/UX Designer",
     icon: UilWebGrid,
@@ -53,8 +58,8 @@ const services = [
 const Service = () => {
   const [activeModal, setActiveModal] = useState(null);
 
-  const openModal = (index) => setActiveModal(index);
-  const closeModal = () => setActiveModal(null);
+  const handleOpenModal = (index) => setActiveModal(index);
+  const handleCloseModal = () => setActiveModal(null);
 
   return (
     <section className="services section" id="services">
@@ -62,13 +67,13 @@ const Service = () => {
       <span className="section__subtitle">What I can offer</span>
 
       <div className="services__container container grid">
-        {services.map((service, index) => {
+        {SERVICES.map((service, index) => {
           const Icon = service.icon;
           return (
             <div className="services__content" key={index}>
               <div>
                 <Icon
-                  size="32"
+                  size={String(ICON_SIZE)}
                   color="var(--first-color)"
                   className="services__icon"
                 />
@@ -77,17 +82,18 @@ const Service = () => {
                   {service.title.split(" ").slice(1).join(" ")}
                 </h3>
               </div>
-              <span
+              <button
                 className="button button--flex button--small button--link services__button"
-                onClick={() => openModal(index)}
+                onClick={() => handleOpenModal(index)}
+                type="button"
               >
                 View More{" "}
                 <UilArrowRight
-                  size="20"
+                  size={String(ARROW_ICON_SIZE)}
                   color="var(--first-color)"
                   className="button__icon"
                 />
-              </span>
+              </button>
 
               {activeModal === index && (
                 <div className="services__modal active-modal">
@@ -96,17 +102,23 @@ const Service = () => {
                       {service.title.split(" ")[0]} <br />
                       {service.title.split(" ").slice(1).join(" ")}
                     </h4>
-                    <UilTimes
-                      size="24"
-                      color="var(--first-color)"
-                      className="uil services__modal-close"
-                      onClick={closeModal}
-                    />
+                    <button
+                      type="button"
+                      aria-label="Close modal"
+                      onClick={handleCloseModal}
+                      className="services__modal-close-button"
+                    >
+                      <UilTimes
+                        size={String(CLOSE_ICON_SIZE)}
+                        color="var(--first-color)"
+                        className="uil services__modal-close"
+                      />
+                    </button>
                     <ul className="services__modal-services grid">
                       {service.description.map((desc, i) => (
                         <li className="services__modal-service" key={i}>
                           <UilCheckCircle
-                            size="24"
+                            size={String(CHECK_ICON_SIZE)}
                             color="var(--first-color)"
                             className="services__modal-icon"
                           />

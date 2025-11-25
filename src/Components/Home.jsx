@@ -1,10 +1,14 @@
-import React from "react";
 import UilLinkedinAlt from "@iconscout/react-unicons/icons/uil-linkedin-alt";
 import UilGithubAlt from "@iconscout/react-unicons/icons/uil-github-alt";
 import UilMessage from "@iconscout/react-unicons/icons/uil-message";
 import UilMouseAlt from "@iconscout/react-unicons/icons/uil-mouse-alt";
 import UilArrowDown from "@iconscout/react-unicons/icons/uil-arrow-down";
 import home from "../assets/home.jpg";
+
+const SOCIAL_ICON_SIZE = 20;
+const BUTTON_ICON_SIZE = 20;
+const SCROLL_ICON_SIZE = 32;
+const ARROW_ICON_SIZE = 20;
 
 const Home = () => {
   return (
@@ -15,16 +19,24 @@ const Home = () => {
             <a
               href="https://www.linkedin.com/in/abdullah-elsabie-41b3a4200/"
               target="_blank"
+              rel="noopener noreferrer"
               className="home__social-icon"
             >
-              <UilLinkedinAlt size="20" color="var(--first-color)" />
+              <UilLinkedinAlt
+                size={String(SOCIAL_ICON_SIZE)}
+                color="var(--first-color)"
+              />
             </a>
             <a
               href="https://github.com/ALSABA3"
               target="_blank"
+              rel="noopener noreferrer"
               className="home__social-icon"
             >
-              <UilGithubAlt size="20" color="var(--first-color)" />
+              <UilGithubAlt
+                size={String(SOCIAL_ICON_SIZE)}
+                color="var(--first-color)"
+              />
             </a>
           </div>
           <div className="home__img">
@@ -54,37 +66,37 @@ const Home = () => {
             </svg>
           </div>
           <div className="home__data">
-            <h1 className="home__title">Hi, I'am Abdullah Elsabie</h1>
+            <h1 className="home__title">Hi, I'm Abdullah Elsabie</h1>
             <h3 className="home__subtitle">Computer Engineering</h3>
             <p className="home__description">
-              I am Abdullah Elsabie a Computer Engineering student at Dogus
-              university in Istanbul. Speaking three languages: Arabic and
-              English and Turkish. I'm always open to improve myself in my field
-              and learning new things outside the field that expand my knowledge
+              I am Abdullah Elsabie, a Graduated Computer Engineering student
+              from Dogus University in Istanbul. I'm fluent in Arabic, English,
+              and Turkish. I'm committed to continuous learning and
+              self-improvement within my field and beyond.
             </p>
             <a href="#contact" className="button button--flex">
               Contact me
               <UilMessage
-                size="20"
+                size={String(BUTTON_ICON_SIZE)}
                 color="var(--first-color)"
                 className="nav__icon button__icon"
-              ></UilMessage>
+              />
             </a>
           </div>
         </div>
         <div className="home__scroll">
           <a href="#about" className="home__scroll-button button--flex">
             <UilMouseAlt
-              size="32"
+              size={String(SCROLL_ICON_SIZE)}
               color="var(--first-color)"
               className="home__scroll-mouse"
-            ></UilMouseAlt>
+            />
             <span className="home__scroll-name">Scroll down</span>
             <UilArrowDown
-              size="20"
+              size={String(ARROW_ICON_SIZE)}
               color="var(--first-color)"
               className="home__scroll-arrow"
-            ></UilArrowDown>
+            />
           </a>
         </div>
       </div>

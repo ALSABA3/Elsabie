@@ -97,6 +97,49 @@ body.dark-theme {
   color: var(--first-color);
 }
 
+/*========== Dark Mode Theme Button ==========*/
+.nav__dark-mode {
+  margin-bottom: var(--mb-1);
+}
+
+.nav__dark-mode .nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--first-color-lighter);
+  transition: 0.3s;
+}
+
+body.dark-theme .nav__dark-mode .nav__link {
+  background-color: hsl(var(--hue-color), 29%, 25%);
+}
+
+.nav__dark-mode .nav__link:hover {
+  background-color: var(--first-color);
+  transform: scale(1.1);
+}
+
+body.dark-theme .nav__dark-mode .nav__link:hover {
+  background-color: var(--first-color);
+}
+
+.nav__dark-mode .nav__name {
+  display: none;
+}
+
+.nav__dark-mode .nav__icon {
+  font-size: 1.25rem;
+  color: var(--first-color);
+}
+
+body.dark-theme .nav__dark-mode .nav__icon {
+  color: #ffd700;
+}
+
 /*==================== BASE ====================*/
 * {
   box-sizing: border-box;

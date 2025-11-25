@@ -2,6 +2,8 @@ import UilDownloadAlt from "@iconscout/react-unicons/icons/uil-download-alt";
 import AboutImg from "../assets/about.jpg";
 import AboutCv from "../assets/Abdullah-Cv.pdf";
 
+const ICON_SIZE = 20;
+
 const About = () => {
   return (
     <section className="about section" id="about">
@@ -12,9 +14,9 @@ const About = () => {
         <img src={AboutImg} alt="" className="about__img" />
         <div className="about__data">
           <p className="about__discription">
-            I have valuable experience in Software Development and Web
-            Development Front-end and Back-end. I also have good experience with
-            graphic design (Worked as a freelancer for 2 years).
+            I have valuable experience in software development and web
+            development across front-end and back-end technologies. I also bring
+            over 2 years of professional freelance experience in graphic design.
           </p>
           <div className="about__info">
             <div>
@@ -40,13 +42,13 @@ const About = () => {
             </div>
           </div>
           <div className="about__button">
-            <a download="" href={AboutCv} className="button button--flex">
-              Download Cv
+            <a download href={AboutCv} className="button button--flex">
+              Download CV
               <UilDownloadAlt
-                size="20"
+                size={String(ICON_SIZE)}
                 color="#fff"
                 className="button__icon"
-              ></UilDownloadAlt>
+              />
             </a>
           </div>
         </div>

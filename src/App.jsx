@@ -9,16 +9,18 @@ import Skills from "./Components/Skills";
 import Contact from "./Components/Contact";
 import Demos from "./Components/Demos";
 
+const SCROLL_OFFSET = 50;
+
 function App() {
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
 
-    const scrollActive = () => {
+    const handleScrollNavigation = () => {
       const scrollY = window.pageYOffset;
 
       sections.forEach((current) => {
         const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 50;
+        const sectionTop = current.offsetTop - SCROLL_OFFSET;
         const sectionId = current.getAttribute("id");
 
         const navLink = document.querySelector(
@@ -33,10 +35,10 @@ function App() {
       });
     };
 
-    window.addEventListener("scroll", scrollActive);
+    window.addEventListener("scroll", handleScrollNavigation);
 
     return () => {
-      window.removeEventListener("scroll", scrollActive);
+      window.removeEventListener("scroll", handleScrollNavigation);
     };
   }, []);
   return (

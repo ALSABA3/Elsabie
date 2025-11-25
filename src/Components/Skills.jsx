@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import UilBracketsCurly from "@iconscout/react-unicons/icons/uil-brackets-curly";
 import UilServerNetwork from "@iconscout/react-unicons/icons/uil-server-network";
 import UilDesktop from "@iconscout/react-unicons/icons/uil-desktop";
 import UilSwatchbook from "@iconscout/react-unicons/icons/uil-swatchbook";
 import UilAngleDown from "@iconscout/react-unicons/icons/uil-angle-down";
 
-const Skills = () => {
-  const [activeIndex, setActiveIndex] = useState(null); // track which skill is open
+const ICON_SIZE = 32;
+const ARROW_ICON_SIZE = 32;
 
-  const toggleSkill = (index) => {
+const Skills = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleToggleSkill = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const skillSections = [
+  const SKILL_SECTIONS = [
     {
       title: "Front-end Developer",
       subtitle: "+2 year experience",
@@ -63,7 +66,7 @@ const Skills = () => {
       <span className="section__subtitle">My technical level</span>
 
       <div className="skills__container container grid">
-        {skillSections.map((section, index) => {
+        {SKILL_SECTIONS.map((section, index) => {
           const Icon = section.icon;
           return (
             <div
@@ -72,12 +75,14 @@ const Skills = () => {
               }`}
               key={index}
             >
-              <div
+              <button
+                type="button"
                 className="skills__header"
-                onClick={() => toggleSkill(index)}
+                onClick={() => handleToggleSkill(index)}
+                aria-expanded={activeIndex === index}
               >
                 <Icon
-                  size="32"
+                  size={String(ICON_SIZE)}
                   color="var(--first-color)"
                   className="skills__icon"
                 />
@@ -86,11 +91,11 @@ const Skills = () => {
                   <span className="skills__subtitle">{section.subtitle}</span>
                 </div>
                 <UilAngleDown
-                  size="32"
+                  size={String(ARROW_ICON_SIZE)}
                   color="var(--first-color)"
                   className="skills__arrow"
                 />
-              </div>
+              </button>
 
               <div className="skills__list grid">
                 {section.skills.map((skill, idx) => (

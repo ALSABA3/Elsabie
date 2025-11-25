@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import NavItems from "./NavItems";
-
 import UilEstate from "@iconscout/react-unicons/icons/uil-estate";
 import UilUser from "@iconscout/react-unicons/icons/uil-user";
 import UilFileAlt from "@iconscout/react-unicons/icons/uil-file-alt";
@@ -12,10 +11,14 @@ import UilApps from "@iconscout/react-unicons/icons/uil-apps";
 import UilMoon from "@iconscout/react-unicons/icons/uil-moon";
 import UilSun from "@iconscout/react-unicons/icons/uil-sun";
 
+const ICON_SIZE = 24;
+const THEME_STORAGE_KEY = "selected-theme";
+const DARK_THEME_CLASS = "dark-theme";
+
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("selected-theme") === "dark";
+    return localStorage.getItem(THEME_STORAGE_KEY) === "dark";
   });
 
   const handleLinkClick = () => {
@@ -27,26 +30,26 @@ const Header = () => {
     setDarkMode(isDark);
 
     if (isDark) {
-      document.body.classList.add("dark-theme");
-      localStorage.setItem("selected-theme", "dark");
+      document.body.classList.add(DARK_THEME_CLASS);
+      localStorage.setItem(THEME_STORAGE_KEY, "dark");
     } else {
-      document.body.classList.remove("dark-theme");
-      localStorage.setItem("selected-theme", "light");
+      document.body.classList.remove(DARK_THEME_CLASS);
+      localStorage.setItem(THEME_STORAGE_KEY, "light");
     }
   };
 
   useEffect(() => {
     if (darkMode) {
-      document.body.classList.add("dark-theme");
+      document.body.classList.add(DARK_THEME_CLASS);
     } else {
-      document.body.classList.remove("dark-theme");
+      document.body.classList.remove(DARK_THEME_CLASS);
     }
   }, [darkMode]);
 
   return (
     <header className="header" id="header">
-      <nav className="nav container">
-        <a href="#home" className="nav__logo">
+      <nav className="nav container nav__container">
+        <a href="/" className="nav__logo">
           Elsabie
         </a>
 
@@ -60,7 +63,7 @@ const Header = () => {
               onClick={handleLinkClick}
               icon={
                 <UilEstate
-                  size="24"
+                  size={String(ICON_SIZE)}
                   color={darkMode ? "#fff" : ""}
                   className="nav__icon"
                 />
@@ -71,7 +74,7 @@ const Header = () => {
               onClick={handleLinkClick}
               icon={
                 <UilUser
-                  size="24"
+                  size={String(ICON_SIZE)}
                   color={darkMode ? "#fff" : ""}
                   className="nav__icon"
                 />
@@ -82,7 +85,7 @@ const Header = () => {
               onClick={handleLinkClick}
               icon={
                 <UilFileAlt
-                  size="24"
+                  size={String(ICON_SIZE)}
                   color={darkMode ? "#fff" : ""}
                   className="nav__icon"
                 />
@@ -93,7 +96,7 @@ const Header = () => {
               onClick={handleLinkClick}
               icon={
                 <UilBriefcase
-                  size="24"
+                  size={String(ICON_SIZE)}
                   color={darkMode ? "#fff" : ""}
                   className="nav__icon"
                 />
@@ -104,7 +107,7 @@ const Header = () => {
               onClick={handleLinkClick}
               icon={
                 <UilScenery
-                  size="24"
+                  size={String(ICON_SIZE)}
                   color={darkMode ? "#fff" : ""}
                   className="nav__icon"
                 />
@@ -115,25 +118,44 @@ const Header = () => {
               onClick={handleLinkClick}
               icon={
                 <UilMessage
-                  size="24"
+                  size={String(ICON_SIZE)}
                   color={darkMode ? "#fff" : ""}
                   className="nav__icon"
                 />
               }
             />
-            <li className="nav__dark-mode" onClick={toggleTheme}>
+            {/* <li className="nav__dark-mode" onClick={toggleTheme}>
               <a className="nav__link">
                 <span className="nav__name">Theme</span>
                 {darkMode ? (
-                  <UilSun size="24" color="#fff" className="nav__icon" />
+                  <UilSun
+                    size={String(ICON_SIZE)}
+                    color="#fff"
+                    className="nav__icon"
+                  />
                 ) : (
-                  <UilMoon size="24" className="nav__icon" />
+                  <UilMoon size={String(ICON_SIZE)} className="nav__icon" />
                 )}
               </a>
-            </li>
+            </li> */}
+            <NavItems
+              point="theme"
+              onClick={toggleTheme}
+              icon={
+                darkMode ? (
+                  <UilSun
+                    size={String(ICON_SIZE)}
+                    color="#fff"
+                    className="nav__icon"
+                  />
+                ) : (
+                  <UilMoon size={String(ICON_SIZE)} className="nav__icon" />
+                )
+              }
+            />
             <li>
               <UilTimes
-                size="24"
+                size={String(ICON_SIZE)}
                 color={darkMode ? "#fff" : ""}
                 className="nav__close"
                 id="nav-close"
@@ -142,8 +164,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-
-        <div className="nav__btns">
+        <div>
           <div
             className="nav__toggle"
             id="nav-toggle"

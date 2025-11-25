@@ -2,6 +2,13 @@ import UilFacebookF from "@iconscout/react-unicons/icons/uil-facebook-f";
 import UilInstagram from "@iconscout/react-unicons/icons/uil-instagram";
 import UilTwitterAlt from "@iconscout/react-unicons/icons/uil-twitter-alt";
 
+const SOCIAL_ICON_SIZE = 24;
+const SOCIAL_LINKS = {
+  facebook: "https://www.facebook.com/profile.php?id=100006622530665/",
+  instagram: "https://www.instagram.com/aboodyalsabaa/",
+  twitter: "https://twitter.com/AboodAlsabaa",
+};
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -19,7 +26,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#portifolio" className="footer__link">
+              <a href="#portfolio" className="footer__link">
                 Portfolio
               </a>
             </li>
@@ -32,24 +39,30 @@ const Footer = () => {
 
           <div className="footer__socials">
             <a
-              href="https://www.facebook.com/profile.php?id=100006622530665/"
+              href={SOCIAL_LINKS.facebook}
               className="footer__social"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <UilFacebookF size="24" color="#fff" />
+              <UilFacebookF size={String(SOCIAL_ICON_SIZE)} color="#fff" />
             </a>
 
             <a
-              href="https://www.instagram.com/aboodyalsabaa/"
+              href={SOCIAL_LINKS.instagram}
               className="footer__social"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <UilInstagram size="24" color="#fff" />
+              <UilInstagram size={String(SOCIAL_ICON_SIZE)} color="#fff" />
             </a>
 
             <a
-              href="https://twitter.com/AboodAlsabaa"
+              href={SOCIAL_LINKS.twitter}
               className="footer__social"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <UilTwitterAlt size="24" color="#fff" />
+              <UilTwitterAlt size={String(SOCIAL_ICON_SIZE)} color="#fff" />
             </a>
           </div>
         </div>

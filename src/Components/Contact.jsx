@@ -6,6 +6,10 @@ import {
   UilMessage,
 } from "@iconscout/react-unicons";
 
+const WHATSAPP_PHONE = "905360321379";
+const ICON_SIZE = 32;
+const MESSAGE_ICON_SIZE = 20;
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,8 +27,9 @@ const Contact = () => {
 
   const generateWhatsAppLink = () => {
     const { name, email, project, message } = formData;
-    return `https://wa.me/905360321379?text=${encodeURIComponent(
-      `name: ${name}\nemail: ${email}\nproject: ${project}\nmessage: ${message}`
+    const messageText = `name: ${name}\nemail: ${email}\nproject: ${project}\nmessage: ${message}`;
+    return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+      messageText
     )}`;
   };
 
@@ -37,19 +42,19 @@ const Contact = () => {
         <div>
           <div className="contact__information">
             <UilPhone
-              size="32"
+              size={String(ICON_SIZE)}
               color="var(--first-color)"
               className="contact__icon"
             />
             <div>
               <h3 className="contact__title">Call Me</h3>
-              <span className="contact__subtitle">+90 (536) 032 13 79</span>
+              <span className="contact__subtitle">+90 (534) 517 33 75</span>
             </div>
           </div>
 
           <div className="contact__information">
             <UilEnvelope
-              size="32"
+              size={String(ICON_SIZE)}
               color="var(--first-color)"
               className="contact__icon"
             />
@@ -61,7 +66,7 @@ const Contact = () => {
 
           <div className="contact__information">
             <UilMapMarker
-              size="32"
+              size={String(ICON_SIZE)}
               color="var(--first-color)"
               className="contact__icon"
             />
@@ -80,45 +85,55 @@ const Contact = () => {
         >
           <div className="contact__inputs grid">
             <div className="contact__content">
-              <label className="contact__label">Name</label>
-              <input
-                type="text"
-                name="name"
-                className="contact__input"
-                value={formData.name}
-                onChange={handleChange}
-              />
+              <label className="contact__label">
+                Name
+                <input
+                  type="text"
+                  name="name"
+                  autoComplete="on"
+                  className="contact__input"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </label>
             </div>
             <div className="contact__content">
-              <label className="contact__label">Email</label>
-              <input
-                type="email"
-                name="email"
-                className="contact__input"
-                value={formData.email}
-                onChange={handleChange}
-              />
+              <label className="contact__label">
+                Email
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="on"
+                  className="contact__input"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </label>
             </div>
           </div>
           <div className="contact__content">
-            <label className="contact__label">Project</label>
-            <input
-              type="text"
-              name="project"
-              className="contact__input"
-              value={formData.project}
-              onChange={handleChange}
-            />
+            <label className="contact__label">
+              Project
+              <input
+                type="text"
+                name="project"
+                className="contact__input"
+                value={formData.project}
+                onChange={handleChange}
+              />
+            </label>
           </div>
           <div className="contact__content">
-            <label className="contact__label">Message</label>
-            <textarea
-              name="message"
-              rows="7"
-              className="contact__input"
-              value={formData.message}
-              onChange={handleChange}
-            ></textarea>
+            <label className="contact__label">
+              Message
+              <textarea
+                name="message"
+                rows="7"
+                className="contact__input"
+                value={formData.message}
+                onChange={handleChange}
+              ></textarea>
+            </label>
           </div>
 
           <div>
@@ -129,7 +144,11 @@ const Contact = () => {
               rel="noopener noreferrer"
             >
               Send message{" "}
-              <UilMessage size="20" color="#fff" className="button__icon" />
+              <UilMessage
+                size={String(MESSAGE_ICON_SIZE)}
+                color="#fff"
+                className="button__icon"
+              />
             </a>
           </div>
         </form>
